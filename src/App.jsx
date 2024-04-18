@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className='app'>
-     <NavBar/>
+     <NavBar numOfResult ={characters.length}/>
      <div className='main'>
       <CharacterList characters={characters}/>
       <CharacterDetail/>
