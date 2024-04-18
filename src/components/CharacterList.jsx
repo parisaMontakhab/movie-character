@@ -1,7 +1,9 @@
 import { EyeIcon} from '@heroicons/react/24/outline';
 import { allCharacters } from "./data";
+import { useState } from 'react';
 
 export default function CharacterList() {
+  const[characters,setCharacters] = useState(allCharacters);
   return (
     <div className="characters-list ">
       {allCharacters.map((item)=>
