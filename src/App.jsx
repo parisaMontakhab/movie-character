@@ -5,7 +5,7 @@ import CharacterList from './components/CharacterList'
 import NavBar from './components/NavBar'
 
 function App() {
-  
+  const[characters,setCharacters] = useState(allCharacters);
 
   return (
     <div className='app'>
