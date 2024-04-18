@@ -1,6 +1,6 @@
 import { EyeIcon} from '@heroicons/react/24/outline';
-import { allCharacters } from "./data";
-import { useState } from 'react';
+
+
 
 export default function CharacterList() {
  

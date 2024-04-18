@@ -1,4 +1,4 @@
-
+import { allCharacters } from "./components/data";
 import './App.css'
 import CharacterDetail from './components/CharacterDetail'
 import CharacterList from './components/CharacterList'
