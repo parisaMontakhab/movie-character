@@ -1,7 +1,7 @@
 import { EyeIcon} from '@heroicons/react/24/outline';
+import { allCharacters } from "./data";
 
-
-export default function CharacterList({allCharacters}) {
+export default function CharacterList() {
   return (
     <div className="characters-list ">
       {allCharacters.map((item)=>
