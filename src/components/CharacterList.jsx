@@ -6,7 +6,7 @@ export default function CharacterList() {
   const[characters,setCharacters] = useState(allCharacters);
   return (
     <div className="characters-list ">
-      {allCharacters.map((item)=>
+      {characters.map((item)=>
       <CharacterItem key={item.id} item={item}/>
     )}
     </div>
