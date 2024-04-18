@@ -1,4 +1,5 @@
 import { allCharacters } from "./components/data";
+import  { useState } from 'react';
 import './App.css'
 import CharacterDetail from './components/CharacterDetail'
 import CharacterList from './components/CharacterList'
@@ -11,7 +12,7 @@ function App() {
     <div className='app'>
      <NavBar/>
      <div className='main'>
-      <CharacterList />
+      <CharacterList characters={characters}/>
       <CharacterDetail/>
 
      </div>

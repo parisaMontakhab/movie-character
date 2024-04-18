@@ -2,7 +2,7 @@ import { EyeIcon} from '@heroicons/react/24/outline';
 
 
 
-export default function CharacterList() {
+export default function CharacterList({characters}) {
  
   return (
     <div className="characters-list ">
