@@ -22,7 +22,7 @@ useEffect(()=>{
     <div className='app'>
      <NavBar numOfResult ={characters.length}/>
      <div className='main'>
-      <CharacterList characters={characters}/>
+      <CharacterList characters={characters} isLoading={isLoading}/>
       <CharacterDetail/>
 
      </div>
