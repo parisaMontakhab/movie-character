@@ -14,13 +14,13 @@ useEffect(()=>{
   async function fetchinApi (){
     try{
       setIsLoading(true);
-      const res = await fetch("https://rickandmortyapi.com/api/character");
-      if(!res.ok) throw new Error("something went wrong!");
-      const data = await res.json();
+      const {data} = await axios.get("https://rickandmortyapi.com/api/character");
+      
       setCharacters(data.results.slice(0,5));
 
     } catch(err){
-       toast.error(err.message);
+      
+       toast.error(err.response.data.error);
     } finally{
       setIsLoading(false);
     }
