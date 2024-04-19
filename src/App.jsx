@@ -1,4 +1,4 @@
-import { allCharacters } from "./components/data";
+import toast, { Toaster } from 'react-hot-toast';
 import  { useEffect, useState } from 'react';
 import './App.css'
 import CharacterDetail from './components/CharacterDetail'
