@@ -9,7 +9,7 @@ function App() {
   const[characters,setCharacters] = useState([]);
 
 useEffect(()=>{
-  fetch("https://rickandmortyapi.com/api/character").then((res)=>res.json()).then((data)=>setCharacters(data.results))
+  fetch("https://rickandmortyapi.com/api/character").then((res)=>res.json()).then((data)=>setCharacters(data.results.slice(0,5)))
 },[]);
 
   return (
