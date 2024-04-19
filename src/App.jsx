@@ -1,3 +1,4 @@
+import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import  { useEffect, useState } from 'react';
 import './App.css'
