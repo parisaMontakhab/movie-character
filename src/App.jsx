@@ -22,6 +22,7 @@ useEffect(()=>{
 
   return (
     <div className='app'>
+      <Toaster/>
      <NavBar numOfResult ={characters.length}/>
      <div className='main'>
       <CharacterList characters={characters} isLoading={isLoading}/>
