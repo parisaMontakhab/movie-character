@@ -8,13 +8,22 @@ import NavBar from './components/NavBar'
 function App() {
   const[characters,setCharacters] = useState([]);
   const [isLoading,setIsLoading]=useState(false);
+
 useEffect(()=>{
   async function fetchinApi (){
-    setIsLoading(true);
-   const res = await fetch("https://rickandmortyapi.com/api/character");
-   const data = await res.json();
-   setCharacters(data.results.slice(0,5));
-   setIsLoading(false);
+    try{
+      setIsLoading(true);
+      const res = await fetch("https://rickandmortyapi.com/api/character");
+      if(!res.ok) throw new Error("something went wrong!");
+      const data = await res.json();
+      setCharacters(data.results.slice(0,5));
+
+    } catch(err){
+       toast.error(err.message);
+    } finally{
+      setIsLoading(false);
+    }
+   
   };
   fetchinApi();
   
