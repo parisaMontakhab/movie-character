@@ -10,9 +10,11 @@ function App() {
   const [isLoading,setIsLoading]=useState(false);
 useEffect(()=>{
   async function fetchinApi (){
+    setIsLoading(true);
    const res = await fetch("https://rickandmortyapi.com/api/character");
    const data = await res.json();
    setCharacters(data.results.slice(0,5));
+   setIsLoading(false);
   };
   fetchinApi();
   
