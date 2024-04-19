@@ -7,7 +7,7 @@ import NavBar from './components/NavBar'
 
 function App() {
   const[characters,setCharacters] = useState([]);
-
+  const [isLoading,setIsLoading]=useState(false);
 useEffect(()=>{
   async function fetchinApi (){
    const res = await fetch("https://rickandmortyapi.com/api/character");
