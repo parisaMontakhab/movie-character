@@ -1,4 +1,5 @@
 import { EyeIcon} from '@heroicons/react/24/outline';
+import Loader from './Loader';
 
 
 
@@ -6,9 +7,10 @@ export default function CharacterList({characters,isLoading}) {
  
   return (
     <div className="characters-list ">
-      {characters.map((item)=>
+      { isLoading? (<Loader/>):
+     ( characters.map((item)=>
       <CharacterItem key={item.id} item={item}/>
-    )}
+    ))}
     </div>
   )
 }
