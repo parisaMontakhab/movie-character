@@ -1,12 +1,16 @@
 import { allCharacters } from "./components/data";
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import './App.css'
 import CharacterDetail from './components/CharacterDetail'
 import CharacterList from './components/CharacterList'
 import NavBar from './components/NavBar'
 
 function App() {
-  const[characters,setCharacters] = useState(allCharacters);
+  const[characters,setCharacters] = useState([]);
+
+useEffect(()=>{
+  fetch("https://rickandmortyapi.com/api/character").then((res)=>res.json()).then((data)=>setCharacters(data.results))
+},[]);
 
   return (
     <div className='app'>
