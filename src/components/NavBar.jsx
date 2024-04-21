@@ -1,6 +1,6 @@
 import {HeartIcon} from "@heroicons/react/24/outline";
 
-export default function NavBar({numOfResult}) {
+export default function NavBar({numOfResult,query,setQuery}) {
   return (
    <nav className="navbar">
     <div className="navbar__logo ">LOGO</div>
