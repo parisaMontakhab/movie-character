@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 function App() {
   const[characters,setCharacters] = useState([]);
   const [isLoading,setIsLoading]=useState(false);
+  const[query,setQuery] = useState("");
 
 useEffect(()=>{
   async function fetchinApi (){
