@@ -41,7 +41,7 @@ function handelSelectedCharacter(id){
       <Toaster/>
      <NavBar numOfResult ={characters.length} query={query} setQuery={setQuery}/>
      <div className='main'>
-      <CharacterList characters={characters} isLoading={isLoading} onselectedCharacter={handelSelectedCharacter}/>
+      <CharacterList characters={characters} isLoading={isLoading} onSelectedCharacter={handelSelectedCharacter}/>
       <CharacterDetail/>
 
      </div>
