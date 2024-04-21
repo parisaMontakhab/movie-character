@@ -15,7 +15,7 @@ useEffect(()=>{
   async function fetchinApi (){
     try{
       setIsLoading(true);
-      const {data} = await axios.get("https://rickandmortyapi.com/api/character");
+      const {data} = await axios.get(`https://rickandmortyapi.com/api/character?name=${query}`);
       
       setCharacters(data.results.slice(0,5));
 
