@@ -32,6 +32,10 @@ useEffect(()=>{
   
 },[query]);
 
+function handelSelectedCharacter(id){
+  setSelectedId(id);
+}
+
   return (
     <div className='app'>
       <Toaster/>
