@@ -4,7 +4,7 @@ export default function NavBar({numOfResult,query,setQuery}) {
   return (
    <nav className="navbar">
     <div className="navbar__logo ">LOGO</div>
-    <input type="text" className="text-field" placeholder="search..."/>
+    <input type="text" className="text-field" placeholder="search..." value={query} onChange={(e)=> setQuery(e.target.value)}/>
     <div className="navbar__result">"found {numOfResult} characters"</div>
     <button className="heart">
         <HeartIcon className="icon"/>
