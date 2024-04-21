@@ -13,6 +13,7 @@ function App() {
   const[selectedId,setSelectedId] = useState(null);
 
 useEffect(()=>{
+
   async function fetchinApi (){
     try{
       setIsLoading(true);
@@ -28,6 +29,10 @@ useEffect(()=>{
     }
    
   };
+  if(query.length <3 ){
+    setCharacters([]);
+    return;
+  }
   fetchinApi();
   
 },[query]);
