@@ -26,7 +26,7 @@ function CharacterItem({item,onSelectedCharacter}){
                 <span> - {item.species}</span>
 
             </div>
-            <button className="icon red" >
+            <button className="icon red" onClick={()=>onSelectedCharacter(item.id)}>
               <EyeIcon/>
             </button>
 
