@@ -3,19 +3,19 @@ import Loader from './Loader';
 
 
 
-export default function CharacterList({characters,isLoading}) {
+export default function CharacterList({characters,isLoading,onSelectedCharacter}) {
  
   return (
     <div className="characters-list ">
       { isLoading? (<Loader/>):
      ( characters.map((item)=>
-      <CharacterItem key={item.id} item={item}/>
+      <CharacterItem key={item.id} item={item} onSelectedCharacter={onSelectedCharacter}/>
     ))}
     </div>
   )
 }
 
-function CharacterItem({item}){
+function CharacterItem({item,onSelectedCharacter}){
     return(
         <div className="list__item">
             <img src={item.image} alt={item.name}/>
@@ -26,7 +26,7 @@ function CharacterItem({item}){
                 <span> - {item.species}</span>
 
             </div>
-            <button className="icon red">
+            <button className="icon red" >
               <EyeIcon/>
             </button>
 
