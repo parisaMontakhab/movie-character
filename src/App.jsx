@@ -29,7 +29,7 @@ useEffect(()=>{
   };
   fetchinApi();
   
-},[]);
+},[query]);
 
   return (
     <div className='app'>
