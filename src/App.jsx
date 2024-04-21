@@ -34,7 +34,7 @@ useEffect(()=>{
   return (
     <div className='app'>
       <Toaster/>
-     <NavBar numOfResult ={characters.length}/>
+     <NavBar numOfResult ={characters.length} query={query} setQuery={setQuery}/>
      <div className='main'>
       <CharacterList characters={characters} isLoading={isLoading}/>
       <CharacterDetail/>
