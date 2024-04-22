@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import toast from "react-hot-toast";
 
 
 export default function CharacterDetail({ selectedId }) {
@@ -19,6 +20,8 @@ export default function CharacterDetail({ selectedId }) {
         );
         setCharacter(data);
       } catch (err) {
+        toast.error(err.response.data.error);
+        
       } finally {
         setIsLoading(false);
       }
