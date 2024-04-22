@@ -73,8 +73,8 @@ if(isLoading){
           </div>
           <div className="actions">
             {
-              isAddToFavourite ? <p>Already Added to Favourite</p> :
-              <button className="btn btn--primary" onClick={()=>onAddToFavourites(character)}>Add to favorite</button>
+              isAddToFavourite ? (<p>Already Added to Favourites</p>) :
+             ( <button className="btn btn--primary" onClick={()=>onAddToFavourites(character)}>Add to favorite</button>)
             }
             
           </div>
