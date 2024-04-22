@@ -1,5 +1,5 @@
 import { ArrowUpCircleIcon } from "@heroicons/react/24/outline";
-import { episodes } from "./data";
+
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 export default function CharacterDetail({ selectedId }) {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [episodes,setEpisodes]=useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,7 +21,7 @@ export default function CharacterDetail({ selectedId }) {
         );
         setCharacter(data);
         const episodesId = data.episode.map((e)=>e.split("/").at(-1));
-        //console.log(episodesId);
+        
         
 
       } catch (err) {
