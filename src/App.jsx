@@ -53,7 +53,7 @@ const isAddToFavourite = favourites.map((fav)=>fav.id).includes(selectedId);
      <NavBar numOfResult ={characters.length} query={query} setQuery={setQuery} numOfFavourites={favourites.length}/>
      <div className='main'>
       <CharacterList characters={characters} isLoading={isLoading} onSelectedCharacter={handelSelectedCharacter} selectedId={selectedId}/>
-      <CharacterDetail selectedId={selectedId} onAddToFavourites={handelToAddFavourites}/>
+      <CharacterDetail selectedId={selectedId} onAddToFavourites={handelToAddFavourites} isAddToFavourite={isAddToFavourite}/>
 
      </div>
 
