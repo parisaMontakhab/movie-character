@@ -13,7 +13,8 @@ export default function CharacterDetail({selectedId}) {
       const {data} = await axios.get(`https://rickandmortyapi.com/api/character/${selectedId}`);
       setCharacter(data);
     }
-    fetchData();
+    if(selectedId)  fetchData();
+   
 
   },[selectedId])
 
