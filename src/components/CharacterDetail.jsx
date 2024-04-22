@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function CharacterDetail({selectedId}) {
   const [character,setCharacter]=useState(null);
+  const [isLoading,setIsLoading] = useState(false);
 
   useEffect(()=>{
     async function fetchData(){
