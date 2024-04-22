@@ -22,7 +22,7 @@ export default function CharacterDetail({ selectedId }) {
         setCharacter(data);
         const episodesId = data.episode.map((e)=>e.split("/").at(-1));
         const {data:episodesData} = await axios.get(`https://rickandmortyapi.com/api/episode/${episodesId}`);
-        setEpisodes(episodesData.slice(0,5));
+       setEpisodes([episodesData].flat().slice(0,5))
         
 
       } catch (err) {
