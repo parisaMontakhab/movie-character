@@ -3,6 +3,8 @@ import { episodes } from "./data";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import Loader from "./Loader";
+
 
 export default function CharacterDetail({ selectedId }) {
   const [character, setCharacter] = useState(null);
@@ -25,7 +27,15 @@ export default function CharacterDetail({ selectedId }) {
     if (selectedId) fetchData();
   }, [selectedId]);
 
-  if (!character) {
+if(isLoading){
+  return(
+    <div style={{ flex: "1", color: "var(--slate-300)" }}>
+      <Loader/>
+    </div>
+  )
+}
+
+  if (!character||!selectedId) {
     return (
       <div style={{ flex: "1", color: "var(--slate-300)" }}>
         Please select a character...
