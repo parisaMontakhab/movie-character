@@ -29,10 +29,10 @@ useEffect(()=>{
     }
    
   };
-  // if(query.length <3 ){
-  //   setCharacters([]);
-  //   return;
-  // }
+  if(query.length <3 ){
+    setCharacters([]);
+    return;
+  }
   fetchinApi();
   
 },[query]);
