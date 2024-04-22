@@ -1,33 +1,38 @@
-
 import { ArrowUpCircleIcon } from "@heroicons/react/24/outline";
 import { episodes } from "./data";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-export default function CharacterDetail({selectedId}) {
-  const [character,setCharacter]=useState(null);
-  const [isLoading,setIsLoading] = useState(false);
+export default function CharacterDetail({ selectedId }) {
+  const [character, setCharacter] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(()=>{
-    async function fetchData(){
-      const {data} = await axios.get(`https://rickandmortyapi.com/api/character/${selectedId}`);
-      setCharacter(data);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get(
+          `https://rickandmortyapi.com/api/character/${selectedId}`
+        );
+        setCharacter(data);
+      } catch (err) {
+      } finally {
+        setIsLoading(false);
+      }
     }
-    if(selectedId)  fetchData();
-   
 
-  },[selectedId])
+    if (selectedId) fetchData();
+  }, [selectedId]);
 
-
-   if(!character){
-    return(
-      <div style={{flex:"1",color:"var(--slate-300)"}}>
+  if (!character) {
+    return (
+      <div style={{ flex: "1", color: "var(--slate-300)" }}>
         Please select a character...
       </div>
-    )
-   }
-   
+    );
+  }
+
   return (
     <div style={{ flex: 1 }}>
       <div className="character-detail">
@@ -60,16 +65,18 @@ export default function CharacterDetail({selectedId}) {
           </button>
         </div>
         <ul>
-           {episodes.map((episode,index)=>
-           <li key={episode.id}>
-           <div> {String(index+1).padStart(2,"0")} - {episode.episode} : <strong>{episode.name}</strong></div>
-           <div className="badge badge--secondary">{episode.air_date}</div>
-           </li>
-
-        )}
+          {episodes.map((episode, index) => (
+            <li key={episode.id}>
+              <div>
+                {" "}
+                {String(index + 1).padStart(2, "0")} - {episode.episode} :{" "}
+                <strong>{episode.name}</strong>
+              </div>
+              <div className="badge badge--secondary">{episode.air_date}</div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
 }
-
