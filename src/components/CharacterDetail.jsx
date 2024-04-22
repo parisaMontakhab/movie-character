@@ -6,11 +6,14 @@ import axios from "axios";
 import Loader from "./Loader";
 import toast from "react-hot-toast";
 
-
-export default function CharacterDetail({ selectedId,onAddToFavourites,isAddToFavourite }) {
+export default function CharacterDetail({
+  selectedId,
+  onAddToFavourites,
+  isAddToFavourite,
+}) {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [episodes,setEpisodes]=useState([]);
+  const [episodes, setEpisodes] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,14 +23,13 @@ export default function CharacterDetail({ selectedId,onAddToFavourites,isAddToFa
           `https://rickandmortyapi.com/api/character/${selectedId}`
         );
         setCharacter(data);
-        const episodesId = data.episode.map((e)=>e.split("/").at(-1));
-        const {data:episodesData} = await axios.get(`https://rickandmortyapi.com/api/episode/${episodesId}`);
-       setEpisodes([episodesData].flat().slice(0,5))
-        
-
+        const episodesId = data.episode.map((e) => e.split("/").at(-1));
+        const { data: episodesData } = await axios.get(
+          `https://rickandmortyapi.com/api/episode/${episodesId}`
+        );
+        setEpisodes([episodesData].flat().slice(0, 5));
       } catch (err) {
         toast.error(err.response.data.error);
-        
       } finally {
         setIsLoading(false);
       }
@@ -36,15 +38,15 @@ export default function CharacterDetail({ selectedId,onAddToFavourites,isAddToFa
     if (selectedId) fetchData();
   }, [selectedId]);
 
-if(isLoading){
-  return(
-    <div style={{ flex: "1", color: "var(--slate-300)" }}>
-      <Loader/>
-    </div>
-  )
-}
+  if (isLoading) {
+    return (
+      <div style={{ flex: "1", color: "var(--slate-300)" }}>
+        <Loader />
+      </div>
+    );
+  }
 
-  if (!character||!selectedId) {
+  if (!character || !selectedId) {
     return (
       <div style={{ flex: "1", color: "var(--slate-300)" }}>
         Please select a character...
@@ -72,11 +74,16 @@ if(isLoading){
             <p>{character.location.name}</p>
           </div>
           <div className="actions">
-            {
-              isAddToFavourite ? (<p>Already Added to Favourites</p>) :
-             ( <button className="btn btn--primary" onClick={()=>onAddToFavourites(character)}>Add to favorite</button>)
-            }
-            
+            {isAddToFavourite ? (
+              <p>Already Added to Favourites</p>
+            ) : (
+              <button
+                className="btn btn--primary"
+                onClick={() => onAddToFavourites(character)}
+              >
+                Add to favorite
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -103,4 +110,3 @@ if(isLoading){
     </div>
   );
 }
-
