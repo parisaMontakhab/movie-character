@@ -42,13 +42,17 @@ function handelSelectedCharacter(id){
   setSelectedId(prevId => prevId===id ? null : id);
 }
 
+function handelToAddFavourites(char){
+setFavourites((prevFav)=>[...prevFav,char]);
+}
+
   return (
     <div className='app'>
       <Toaster/>
      <NavBar numOfResult ={characters.length} query={query} setQuery={setQuery} numOfFavourites={favourites.length}/>
      <div className='main'>
       <CharacterList characters={characters} isLoading={isLoading} onSelectedCharacter={handelSelectedCharacter} selectedId={selectedId}/>
-      <CharacterDetail selectedId={selectedId}/>
+      <CharacterDetail selectedId={selectedId} onAddToFavourites={handelToAddFavourites}/>
 
      </div>
 

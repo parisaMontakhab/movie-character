@@ -7,7 +7,7 @@ import Loader from "./Loader";
 import toast from "react-hot-toast";
 
 
-export default function CharacterDetail({ selectedId }) {
+export default function CharacterDetail({ selectedId,onAddToFavourites }) {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [episodes,setEpisodes]=useState([]);
@@ -72,7 +72,7 @@ if(isLoading){
             <p>{character.location.name}</p>
           </div>
           <div className="actions">
-            <button className="btn btn--primary">Add to favorite</button>
+            <button className="btn btn--primary" onClick={()=>onAddToFavourites(character)}>Add to favorite</button>
           </div>
         </div>
       </div>
