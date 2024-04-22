@@ -45,6 +45,7 @@ function handelSelectedCharacter(id){
 function handelToAddFavourites(char){
 setFavourites((prevFav)=>[...prevFav,char]);
 }
+const isAddToFavourite = favourites.map((fav)=>fav.id).includes(selectedId);
 
   return (
     <div className='app'>
