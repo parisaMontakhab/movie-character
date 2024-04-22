@@ -38,7 +38,7 @@ useEffect(()=>{
 },[query]);
 
 function handelSelectedCharacter(id){
-  setSelectedId(id);
+  setSelectedId(prevId => prevId===id ? null : id);
 }
 
   return (
