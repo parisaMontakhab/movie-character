@@ -19,6 +19,10 @@ export default function CharacterDetail({ selectedId }) {
           `https://rickandmortyapi.com/api/character/${selectedId}`
         );
         setCharacter(data);
+        const episodesId = data.episode.map((e)=>e.split("/").at(-1));
+        //console.log(episodesId);
+        
+
       } catch (err) {
         toast.error(err.response.data.error);
         
