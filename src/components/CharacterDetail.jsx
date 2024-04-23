@@ -115,7 +115,7 @@ function CharacterEpisodes({ episodes }) {
       <div className="title">
         <h2>List of Episodes:</h2>
         <button onClick={()=>setSortBy((is)=>!is)}>
-          <ArrowUpCircleIcon className="icon" />
+          <ArrowUpCircleIcon className="icon" style={{rotate: sortBy ? "0deg" : "180deg"}}/>
         </button>
       </div>
       <ul>
