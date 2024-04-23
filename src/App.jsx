@@ -37,6 +37,9 @@ useEffect(()=>{
     return;
   }
   fetchinApi();
+   return ()=>{
+    
+   }
   
 },[query]);
 
