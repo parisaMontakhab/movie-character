@@ -17,7 +17,7 @@ useEffect(()=>{
 
   async function fetchinApi (){
     const controller = new AbortController();
-    
+    const signal = controller.signal;
     try{
       setIsLoading(true);
       const {data} = await axios.get(`https://rickandmortyapi.com/api/character?name=${query}`);
