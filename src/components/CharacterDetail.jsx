@@ -103,11 +103,12 @@ function CharacterSubInfo({ character, isAddToFavourite, onAddToFavourites }) {
 }
 
 function CharacterEpisodes({ episodes }) {
+  const [sortBy,setSortBy] = useState(true);
   return (
     <div className="character-episodes">
       <div className="title">
         <h2>List of Episodes:</h2>
-        <button>
+        <button >
           <ArrowUpCircleIcon className="icon" />
         </button>
       </div>
