@@ -38,7 +38,7 @@ useEffect(()=>{
   }
   fetchinApi();
    return ()=>{
-    
+    controller.abort();
    }
   
 },[query]);
