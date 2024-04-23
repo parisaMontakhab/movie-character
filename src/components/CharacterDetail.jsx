@@ -10,7 +10,6 @@ export default function CharacterDetail({
   selectedId,
   onAddToFavourites,
   isAddToFavourite,
-  
 }) {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -57,64 +56,73 @@ export default function CharacterDetail({
 
   return (
     <div style={{ flex: 1 }}>
-      <CharacterSubInfo character={character}  isAddToFavourite={isAddToFavourite} onAddToFavourites={onAddToFavourites}/>
-      <div className="character-episodes">
-        <div className="title">
-          <h2>List of Episodes:</h2>
-          <button>
-            <ArrowUpCircleIcon className="icon" />
-          </button>
+      <CharacterSubInfo
+        character={character}
+        isAddToFavourite={isAddToFavourite}
+        onAddToFavourites={onAddToFavourites}
+      />
+      <CharacterEpisodes episodes={episodes} />
+    </div>
+  );
+}
+
+function CharacterSubInfo({ character, isAddToFavourite, onAddToFavourites }) {
+  return (
+    <div className="character-detail">
+      <img src={character.image} alt={character.name} />
+      <div className="character-detail__info">
+        <h3 className="name">
+          <span>{character.name}</span>
+        </h3>
+        <div className="info">
+          <span
+            className={`status ${character.status === "Dead" ? "red" : ""}`}
+          ></span>
+          <span> {character.status}</span>
+          <span> - {character.species}</span>
         </div>
-        <ul>
-          {episodes.map((episode, index) => (
-            <li key={episode.id}>
-              <div>
-                {" "}
-                {String(index + 1).padStart(2, "0")} - {episode.episode} :{" "}
-                <strong>{episode.name}</strong>
-              </div>
-              <div className="badge badge--secondary">{episode.air_date}</div>
-            </li>
-          ))}
-        </ul>
+        <div className="location">
+          <p>Last known location:</p>
+          <p>{character.location.name}</p>
+        </div>
+        <div className="actions">
+          {isAddToFavourite ? (
+            <p>Already Added to Favourites</p>
+          ) : (
+            <button
+              className="btn btn--primary"
+              onClick={() => onAddToFavourites(character)}
+            >
+              Add to favorite
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-function CharacterSubInfo({character,isAddToFavourite,onAddToFavourites}){
-  return(
-<div className="character-detail">
-        <img src={character.image} alt={character.name} />
-        <div className="character-detail__info">
-          <h3 className="name">
-            <span>{character.name}</span>
-          </h3>
-          <div className="info">
-            <span
-              className={`status ${character.status === "Dead" ? "red" : ""}`}
-            ></span>
-            <span> {character.status}</span>
-            <span> - {character.species}</span>
-          </div>
-          <div className="location">
-            <p>Last known location:</p>
-            <p>{character.location.name}</p>
-          </div>
-          <div className="actions">
-            {isAddToFavourite ? (
-              <p>Already Added to Favourites</p>
-            ) : (
-              <button
-                className="btn btn--primary"
-                onClick={() => onAddToFavourites(character)}
-              >
-                Add to favorite
-              </button>
-            )}
-          </div>
-        </div>
+function CharacterEpisodes({ episodes }) {
+  return (
+    <div className="character-episodes">
+      <div className="title">
+        <h2>List of Episodes:</h2>
+        <button>
+          <ArrowUpCircleIcon className="icon" />
+        </button>
       </div>
-  )
-
+      <ul>
+        {episodes.map((episode, index) => (
+          <li key={episode.id}>
+            <div>
+              {" "}
+              {String(index + 1).padStart(2, "0")} - {episode.episode} :{" "}
+              <strong>{episode.name}</strong>
+            </div>
+            <div className="badge badge--secondary">{episode.air_date}</div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
