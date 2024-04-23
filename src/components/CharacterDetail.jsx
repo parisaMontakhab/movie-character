@@ -119,7 +119,7 @@ function CharacterEpisodes({ episodes }) {
         </button>
       </div>
       <ul>
-        {episodes.map((episode, index) => (
+        {sortedEpisodes.map((episode, index) => (
           <li key={episode.id}>
             <div>
               {" "}
