@@ -10,6 +10,7 @@ export default function CharacterDetail({
   selectedId,
   onAddToFavourites,
   isAddToFavourite,
+  
 }) {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +57,34 @@ export default function CharacterDetail({
 
   return (
     <div style={{ flex: 1 }}>
-      <div className="character-detail">
+      <CharacterSubInfo character={character}  isAddToFavourite={isAddToFavourite} onAddToFavourites={onAddToFavourites}/>
+      <div className="character-episodes">
+        <div className="title">
+          <h2>List of Episodes:</h2>
+          <button>
+            <ArrowUpCircleIcon className="icon" />
+          </button>
+        </div>
+        <ul>
+          {episodes.map((episode, index) => (
+            <li key={episode.id}>
+              <div>
+                {" "}
+                {String(index + 1).padStart(2, "0")} - {episode.episode} :{" "}
+                <strong>{episode.name}</strong>
+              </div>
+              <div className="badge badge--secondary">{episode.air_date}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function CharacterSubInfo({character,isAddToFavourite,onAddToFavourites}){
+  return(
+<div className="character-detail">
         <img src={character.image} alt={character.name} />
         <div className="character-detail__info">
           <h3 className="name">
@@ -87,26 +115,6 @@ export default function CharacterDetail({
           </div>
         </div>
       </div>
-      <div className="character-episodes">
-        <div className="title">
-          <h2>List of Episodes:</h2>
-          <button>
-            <ArrowUpCircleIcon className="icon" />
-          </button>
-        </div>
-        <ul>
-          {episodes.map((episode, index) => (
-            <li key={episode.id}>
-              <div>
-                {" "}
-                {String(index + 1).padStart(2, "0")} - {episode.episode} :{" "}
-                <strong>{episode.name}</strong>
-              </div>
-              <div className="badge badge--secondary">{episode.air_date}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+  )
+
 }
