@@ -14,13 +14,14 @@ function App() {
   const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     async function fetchinApi() {
-      const controller = new AbortController();
-      const signal = controller.signal;
+     
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character?name=${query}`
+          `https://rickandmortyapi.com/api/character?name=${query}`,{signal}
         );
 
         setCharacters(data.results.slice(0, 5));
