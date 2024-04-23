@@ -114,7 +114,7 @@ function CharacterEpisodes({ episodes }) {
     <div className="character-episodes">
       <div className="title">
         <h2>List of Episodes:</h2>
-        <button >
+        <button onClick={()=>setSortBy((is)=>!is)}>
           <ArrowUpCircleIcon className="icon" />
         </button>
       </div>
