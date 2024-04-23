@@ -2,6 +2,11 @@
 
 export default function Modal() {
   return (
-    <div>Modal</div>
+    <div className="backdrop">
+        <div className="modal">
+
+        </div>
+
+    </div>
   )
 }
