@@ -21,8 +21,7 @@ export default function NavBar({ numOfResult, query, setQuery, favourites }) {
           <CharacterItem
           key={item.id}
             item={item}
-            onSelectedCharacter={() => {}}
-            selectedId="1"
+           
           >
             <button className=" icon red">
               <TrashIcon/>
