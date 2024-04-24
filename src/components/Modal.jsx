@@ -13,9 +13,9 @@ export default function Modal({title,children,onOpen,open}) {
                 </button>
 
             </div>
-
+            {children}
         </div>
-        {children}
+        
     </div>
   )
 }

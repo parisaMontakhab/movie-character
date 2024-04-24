@@ -15,7 +15,7 @@ export default function CharacterList({characters,isLoading,onSelectedCharacter,
   )
 }
 
-function CharacterItem({item,onSelectedCharacter,selectedId}){
+ export function CharacterItem({item,onSelectedCharacter,selectedId}){
     return(
         <div className="list__item">
             <img src={item.image} alt={item.name}/>

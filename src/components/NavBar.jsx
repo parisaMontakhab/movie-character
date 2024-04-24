@@ -1,6 +1,8 @@
 import {HeartIcon} from "@heroicons/react/24/outline";
 import { useState } from "react";
 import  Modal  from "./Modal";
+import { CharacterItem } from "./CharacterList";
+
 export default function NavBar({numOfResult,query,setQuery,favourites}) {
   const[isOpen,setIsOpen] = useState(false);
   return (
@@ -9,7 +11,8 @@ export default function NavBar({numOfResult,query,setQuery,favourites}) {
     <input type="text" className="text-field" placeholder="search..." value={query} onChange={(e)=> setQuery(e.target.value)}/>
     <div className="navbar__result">"found {numOfResult} characters"</div>
     <Modal onOpen={setIsOpen} open={isOpen} title="List of favourites">
-      
+      {favourites.map((item)=>(
+      <CharacterItem item={item} onSelectedCharacter={()=>{}} selectedId="1"/>))}
     </Modal>
     <button className="heart" onClick={()=>setIsOpen((is)=>!is)}>
         <HeartIcon className="icon"/>
