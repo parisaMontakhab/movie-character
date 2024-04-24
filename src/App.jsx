@@ -59,7 +59,7 @@ function App() {
         numOfResult={characters.length}
         query={query}
         setQuery={setQuery}
-        numOfFavourites={favourites.length}
+        favourites={favourites}
       />
       <div className="main">
         <CharacterList

@@ -1,6 +1,6 @@
 import {HeartIcon} from "@heroicons/react/24/outline";
 
-export default function NavBar({numOfResult,query,setQuery,numOfFavourites}) {
+export default function NavBar({numOfResult,query,setQuery,favourites}) {
   return (
    <nav className="navbar">
     <div className="navbar__logo ">LOGO</div>
@@ -8,7 +8,7 @@ export default function NavBar({numOfResult,query,setQuery,numOfFavourites}) {
     <div className="navbar__result">"found {numOfResult} characters"</div>
     <button className="heart">
         <HeartIcon className="icon"/>
-        <span className="badge">{numOfFavourites}</span>
+        <span className="badge">{favourites.length}</span>
     </button>
 
    </nav>
