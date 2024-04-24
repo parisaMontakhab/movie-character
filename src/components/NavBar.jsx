@@ -1,4 +1,4 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import Modal from "./Modal";
 import { CharacterItem } from "./CharacterList";
@@ -23,7 +23,11 @@ export default function NavBar({ numOfResult, query, setQuery, favourites }) {
             item={item}
             onSelectedCharacter={() => {}}
             selectedId="1"
-          />
+          >
+            <button className=" icon red">
+              <TrashIcon/>
+            </button>
+          </CharacterItem>
         ))}
       </Modal>
       <button className="heart" onClick={() => setIsOpen((is) => !is)}>
