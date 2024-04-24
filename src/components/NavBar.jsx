@@ -8,7 +8,9 @@ export default function NavBar({numOfResult,query,setQuery,favourites}) {
     <div className="navbar__logo ">LOGO</div>
     <input type="text" className="text-field" placeholder="search..." value={query} onChange={(e)=> setQuery(e.target.value)}/>
     <div className="navbar__result">"found {numOfResult} characters"</div>
-    <Modal onOpen={setIsOpen} open={isOpen} title="List of favourites"/>
+    <Modal onOpen={setIsOpen} open={isOpen} title="List of favourites">
+      
+    </Modal>
     <button className="heart" onClick={()=>setIsOpen((is)=>!is)}>
         <HeartIcon className="icon"/>
         <span className="badge">{favourites.length}</span>
