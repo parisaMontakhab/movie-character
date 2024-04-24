@@ -16,8 +16,8 @@ export default function CharacterList({
           <CharacterItem
             key={item.id}
             item={item}
-            onSelectedCharacter={onSelectedCharacter}
-            selectedId={selectedId}
+            
+            
           >
             <button
               className="icon red"
