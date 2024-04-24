@@ -16,7 +16,7 @@ export default function NavBar({ numOfResult, query, setQuery, favourites,onDele
         onChange={(e) => setQuery(e.target.value)}
       />
       <div className="navbar__result">"found {numOfResult} characters"</div>
-      <Modal onOpen={setIsOpen} open={isOpen} title="List of favourites">
+      <Modal  favourites={favourites} onOpen={setIsOpen} open={isOpen} title="List of favourites">
         {favourites.map((item) => (
           <CharacterItem
           key={item.id}

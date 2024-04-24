@@ -1,7 +1,7 @@
 import { XCircleIcon } from "@heroicons/react/16/solid";
 
 
-export default function Modal({title,children,onOpen,open}) {
+export default function Modal({title,children,onOpen,open,favourites}) {
   if(!open) return null;
   return (
     <div className="backdrop" >
@@ -13,7 +13,10 @@ export default function Modal({title,children,onOpen,open}) {
                 </button>
 
             </div>
-            {children}
+           {
+           favourites.length=== 0 ? (<p style={{color:"var(--slate-200)"}}>please add to favourite</p>) :
+           children
+           }
         </div>
         
     </div>
