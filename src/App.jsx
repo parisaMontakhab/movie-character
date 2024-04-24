@@ -43,6 +43,10 @@ function App() {
     };
   }, [query]);
 
+  useEffect(()=>{
+    localStorage.setItem("FAVOURITES",JSON.stringify(favourites))
+  },[favourites]);
+
   function handelSelectedCharacter(id) {
     setSelectedId((prevId) => (prevId === id ? null : id));
   }
