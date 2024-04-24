@@ -52,6 +52,10 @@ function App() {
   }
   const isAddToFavourite = favourites.map((fav) => fav.id).includes(selectedId);
 
+  function handelRemoveFavourites(id){
+   setFavourites((prevFav)=>prevFav.filter((fav)=>fav.id !== id));
+  }
+
   return (
     <div className="app">
       <Toaster />
@@ -60,6 +64,7 @@ function App() {
         query={query}
         setQuery={setQuery}
         favourites={favourites}
+        onDeletFavourite={handelRemoveFavourites}
       />
       <div className="main">
         <CharacterList

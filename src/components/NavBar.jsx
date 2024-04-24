@@ -3,7 +3,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import { CharacterItem } from "./CharacterList";
 
-export default function NavBar({ numOfResult, query, setQuery, favourites }) {
+export default function NavBar({ numOfResult, query, setQuery, favourites,onDeletFavourite }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="navbar">
@@ -23,7 +23,7 @@ export default function NavBar({ numOfResult, query, setQuery, favourites }) {
             item={item}
            
           >
-            <button className=" icon red">
+            <button className=" icon red" onClick={()=>onDeletFavourite(item.id)}>
               <TrashIcon/>
             </button>
           </CharacterItem>
