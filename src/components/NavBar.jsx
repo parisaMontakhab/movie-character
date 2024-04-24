@@ -19,6 +19,7 @@ export default function NavBar({ numOfResult, query, setQuery, favourites }) {
       <Modal onOpen={setIsOpen} open={isOpen} title="List of favourites">
         {favourites.map((item) => (
           <CharacterItem
+          key={item.id}
             item={item}
             onSelectedCharacter={() => {}}
             selectedId="1"
