@@ -2,7 +2,7 @@ import {  useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export function useCharacters() {
+export function useCharacters(query) {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,4 +35,6 @@ export function useCharacters() {
       controller.abort();
     };
   }, [query]);
+
+  return {characters,isLoading}
 }
