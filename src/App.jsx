@@ -7,8 +7,7 @@ import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+ 
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [favourites, setFavourites] = useState(()=>JSON.parse(localStorage.getItem("FAVOURITES"))||[]);
