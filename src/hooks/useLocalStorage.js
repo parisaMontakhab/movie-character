@@ -6,4 +6,6 @@ export function useLocalStorage(){
   useEffect(()=>{
     localStorage.setItem("FAVOURITES",JSON.stringify(favourites))
   },[favourites]);
+
+  return[value,setValue];
 }
