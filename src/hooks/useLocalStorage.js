@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export function useLocalStorage(){
     const [favourites, setFavourites] = useState(()=>JSON.parse(localStorage.getItem("FAVOURITES"))||[]);
     
