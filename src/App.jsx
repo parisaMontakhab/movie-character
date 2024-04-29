@@ -6,12 +6,14 @@ import CharacterDetail from "./components/CharacterDetail";
 import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
 import { useCharacters } from "./hooks/useCharacters";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
  
   const [query, setQuery] = useState("");
   const {isLoading,characters} = useCharacters("https://rickandmortyapi.com/api/character?name",query);
   const [selectedId, setSelectedId] = useState(null);
+  const [favourites,setFavourites] = useLocalStorage("FAVOURITES")
   
 
 
