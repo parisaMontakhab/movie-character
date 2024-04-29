@@ -36,5 +36,5 @@ export function useCharacters(query) {
     };
   }, [query]);
 
-  return {characters,isLoading}
+  return {isLoading,characters};
 }
