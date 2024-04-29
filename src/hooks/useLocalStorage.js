@@ -7,5 +7,6 @@ export function useLocalStorage(){
     localStorage.setItem("FAVOURITES",JSON.stringify(value))
   },[value]);
 
-  return[value,setValue];
+  return[value,setValue]; 
+  // write value instead favourites just for daynamicly " ke age jaye dg estefade kard harchizi bashe na inke favourites bashe"//
 }
