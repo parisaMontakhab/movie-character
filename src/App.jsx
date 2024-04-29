@@ -10,7 +10,7 @@ import { useCharacters } from "./hooks/useCharacters";
 function App() {
  
   const [query, setQuery] = useState("");
-  const {isLoading,characters} = useCharacters(query);
+  const {isLoading,characters} = useCharacters("https://rickandmortyapi.com/api/character?name",query);
   const [selectedId, setSelectedId] = useState(null);
   const [favourites, setFavourites] = useState(()=>JSON.parse(localStorage.getItem("FAVOURITES"))||[]);
 
