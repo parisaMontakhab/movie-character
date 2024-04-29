@@ -1,3 +1,7 @@
+import {  useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+
 export function useCharacters() {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
