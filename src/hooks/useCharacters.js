@@ -2,7 +2,7 @@ import {  useState,useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export function useCharacters(query) {
+export function useCharacters(url,query) {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -13,7 +13,7 @@ export function useCharacters(query) {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character?name=${query}`,
+          `${url}=${query}`,
           { signal }
         );
 
