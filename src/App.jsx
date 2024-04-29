@@ -5,10 +5,12 @@ import "./App.css";
 import CharacterDetail from "./components/CharacterDetail";
 import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
+import { useCharacters } from "./hooks/useCharacters";
 
 function App() {
  
   const [query, setQuery] = useState("");
+  const {isLoading,characters} = useCharacters(query);
   const [selectedId, setSelectedId] = useState(null);
   const [favourites, setFavourites] = useState(()=>JSON.parse(localStorage.getItem("FAVOURITES"))||[]);
 
